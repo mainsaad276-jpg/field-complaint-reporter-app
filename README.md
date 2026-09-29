@@ -1,1 +1,30 @@
-IyBGaWVsZCBDb21wbGFpbnQgUmVwb3J0ZXIg4oCUIE9mZmxpbmUgTW9iaWxlIEFwcAoKT2ZmbGluZS1maXJzdCBmaWVsZCByZXBvcnRpbmcgYXBwIGZvciAqKkNhcmJvbiBOZXh1cyBHcmVlbiBQdnQuIEx0ZC4gKENORykqKiDigJQKYnJhbmRlZCAqIlNhYWQgQXNocmFmLCBFbnZpcm9ubWVudGFsaXN0IiouCgotIGB3d3cvYCDigJQgdGhlIGNvbXBsZXRlIG9mZmxpbmUgd2ViIGFwcCAoSFRNTC9DU1MvSlMpLiBBbGwgZGF0YSBpcyBzdG9yZWQKICBvbi1kZXZpY2UgKGxvY2FsU3RvcmFnZSArIEluZGV4ZWREQikuIFplcm8gYmFja2VuZCwgemVybyBDRE4gYXQgcnVudGltZS4KLSBgYW5kcm9pZC9gIOKAlCBuYXRpdmUgQW5kcm9pZCB3cmFwcGVyIChXZWJWaWV3IGxvYWRzIHRoZSBhcHAgZnJvbSBhc3NldHMpLgogIFBhY2thZ2UgYGNvbS5jYXJib25uZXh1c2dyZWVuLmZjcmAuCi0gYC5naXRodWIvd29ya2Zsb3dzL2J1aWxkLWFway55bWxgIOKAlCBDSSBidWlsZHMgYSBkZWJ1ZyBBUEsgb24gZXZlcnkgcHVzaC4KCiMjIEJ1aWxkIHRoZSBBUEsgbG9jYWxseQoKYGBgYmFzaApjZCBhbmRyb2lkCi4vZ3JhZGxldyBhc3NlbWJsZURlYnVnCiMgLT4gYXBwL2J1aWxkL291dHB1dHMvYXBrL2RlYnVnL2FwcC1kZWJ1Zy5hcGsKYGBgCgojIyBGZWF0dXJlcyAoYWxsIG9mZmxpbmUpCgpEYXNoYm9hcmQsIGNvbXBsYWludCByZXBvcnRpbmcgKGNhbWVyYSBwaG90by92aWRlbywgR1BTLCBzdGF0dXMgd29ya2Zsb3cpLApBUUkgbG9nZ2VyIHdpdGggZ3VpZGUsIGNhcmJvbiBjYWxjdWxhdG9yIChrV2gg4oaSIENP4oKCLCBzb2xhci93aW5kIHNhdmluZ3MsCmNyZWRpdCBlc3RpbWF0ZXMpLCBjdXN0b20gc3VydmV5IGJ1aWxkZXIsIHZvbHVudGVlcnMsIGV2ZW50cyB3aXRoIFJTVlAgKwphdHRlbmRhbmNlLCB0ZWFtIHdpdGggbGVhZGVyYm9hcmQgKyBwcmludGFibGUgSUQgY2FyZHMsIGNsaWVudHMvcHJvamVjdHMsCmNsaWVudCBjYXJib24gZm9vdHByaW50cywgcmV2aWV3cywgZG9jdW1lbnQgdmF1bHQsIG5ld3MsIGRvbmF0aW9uIHBsZWRnZXMsCmNhcmJvbi1jcmVkaXQgbGlzdGluZ3MsIGVxdWlwbWVudCBpbnZlbnRvcnksIHNjaGVkdWxlZCByZXBvcnRzLCBhdWRpdCB0cmFpbCwKc2lnbmVkIHByaW50YWJsZSByZXBvcnRzIHdpdGggUVIgY29kZXMsIENTViBleHBvcnQsIGJlZm9yZS9hZnRlciBwaG90bwpjb21wYXJpc29uLCB2b2ljZSBub3Rlcywgb25lLXRhcCBXaGF0c0FwcCBlbWVyZ2VuY3kgR1BTIHJlcG9ydCwgSlNPTgpiYWNrdXAvcmVzdG9yZSwgRW5nbGlzaC/Yp9ix2K/ZiCB0b2dnbGUsIGRhcmsgbW9kZS4KCjwhLS0gYnVpbGQ6IHRyaWdnZXIgQVBLIHdvcmtmbG93IC0tPgo=
+# Field Complaint Reporter — Offline Mobile App
+
+Offline-first field reporting app for **Carbon Nexus Green Pvt. Ltd. (CNG)** —
+branded *"Saad Ashraf, Environmentalist"*.
+
+- `www/` — the complete offline web app (HTML/CSS/JS). All data is stored
+  on-device (localStorage + IndexedDB). Zero backend, zero CDN at runtime.
+- `android/` — native Android wrapper (WebView loads the app from assets).
+  Package `com.carbonnexusgreen.fcr`.
+- `.github/workflows/build-apk.yml` — CI builds a debug APK on every push.
+
+## Build the APK locally
+
+```bash
+cd android
+./gradlew assembleDebug
+# -> app/build/outputs/apk/debug/app-debug.apk
+```
+
+## Features (all offline)
+
+Dashboard, complaint reporting (camera photo/video, GPS, status workflow),
+AQI logger with guide, carbon calculator (kWh → CO₂, solar/wind savings,
+credit estimates), custom survey builder, volunteers, events with RSVP +
+attendance, team with leaderboard + printable ID cards, clients/projects,
+client carbon footprints, reviews, document vault, news, donation pledges,
+carbon-credit listings, equipment inventory, scheduled reports, audit trail,
+signed printable reports with QR codes, CSV export, before/after photo
+comparison, voice notes, one-tap WhatsApp emergency GPS report, JSON
+backup/restore, English/اردو toggle, dark mode.

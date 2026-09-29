@@ -1,1 +1,9 @@
-cGx1Z2luTWFuYWdlbWVudCB7CiAgICByZXBvc2l0b3JpZXMgewogICAgICAgIGdvb2dsZSgpCiAgICAgICAgbWF2ZW5DZW50cmFsKCkKICAgICAgICBncmFkbGVQbHVnaW5Qb3J0YWwoKQogICAgfQp9CnJvb3RQcm9qZWN0Lm5hbWUgPSAiRmllbGQgQ29tcGxhaW50IFJlcG9ydGVyIgppbmNsdWRlKCI6YXBwIikK
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+rootProject.name = "Field Complaint Reporter"
+include(":app")
