@@ -44,7 +44,8 @@ $('#langToggle').onclick=()=>{lang=lang==='en'?'ur':'en';localStorage.setItem('f
 function checkRole(){if(!DB.settings.role)$('#roleGate').classList.remove('hidden');}
 $$('#roleGate [data-role], .role-pick').forEach(b=>b.onclick=()=>{DB.settings.role=b.dataset.role;save();audit('Role set: '+b.dataset.role);$('#roleGate').classList.add('hidden');alert(t('roleSet'));});
 
-function renderAll(){applyI18n();renderHome();renderComplaints();renderAqi();renderSurveys();renderVolunteers();renderEvents();renderTeam();renderClients();renderVault();renderVoiceNotes();}
+function safeRender(fn){try{fn();}catch(e){console.warn('render skipped:',e&&e.message);}}
+function renderAll(){safeRender(applyI18n);safeRender(renderHome);safeRender(renderComplaints);safeRender(renderAqi);safeRender(renderSurveys);safeRender(renderVolunteers);safeRender(renderEvents);safeRender(renderTeam);safeRender(renderClients);safeRender(renderVault);safeRender(renderVoiceNotes);}
 
 /* ---------- dashboard ---------- */
 function renderHome(){
@@ -185,4 +186,10 @@ $('#bkExport').onclick=()=>{const blob=new Blob([JSON.stringify(DB,null,1)],{typ
 $('#bkImport').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!d.complaints)throw 0;DB=d;save();audit('Backup imported');renderAll();alert(t('imported'));}catch(_){alert('Invalid file');}};r.readAsText(f);};
 
 /* ---------- init ---------- */
-document.addEventListener('DOMContentLoaded',async()=>{applyI18n();bindVault();await idbOpen();checkRole();renderAll();});
+document.addEventListener('DOMContentLoaded',async()=>{
+  try{applyI18n();}catch(e){console.warn('i18n:',e&&e.message);}
+  try{bindVault();}catch(e){console.warn('vault bind:',e&&e.message);}
+  try{await Promise.race([idbOpen(),new Promise(r=>setTimeout(r,4000))]);}catch(e){console.warn('idb:',e&&e.message);}
+  try{checkRole();}catch(e){console.warn('role:',e&&e.message);}
+  renderAll();
+});
