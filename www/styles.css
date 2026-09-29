@@ -133,3 +133,13 @@ label{font-size:13px;font-weight:600}
 .foot-photo{width:62px;height:62px;border-radius:50%;object-fit:cover;border:2px solid var(--green-500)}
 .home-footer b{display:block;margin-top:8px}
 .home-footer p{margin:4px 0 10px}
+
+/* ---------- AI chat ---------- */
+.chat-card{display:flex;flex-direction:column;min-height:62vh}
+.chat-msgs{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding:4px;max-height:52vh}
+.msg{max-width:88%;padding:9px 13px;border-radius:15px;line-height:1.5;font-size:14px;word-wrap:break-word}
+.msg.bot{background:var(--green-100,#e8f5e9);color:#1b5e20;align-self:flex-start;border-bottom-left-radius:5px}
+.msg.user{background:linear-gradient(135deg,var(--green-700),var(--green-500));color:#fff;align-self:flex-end;border-bottom-right-radius:5px}
+[data-theme="dark"] .msg.bot{background:#1b3a24;color:#c8e6c9}
+.chat-row{display:flex;gap:8px;margin-top:10px}
+.chat-row input{flex:1;margin:0}

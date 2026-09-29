@@ -153,6 +153,12 @@
         <button class="btn primary block" id="aqiAdd" data-i18n="save">Save</button>
       </div>
       <div class="card">
+        <h3 data-i18n="liveAqi">Live AQI</h3>
+        <p class="muted small" data-i18n="liveAqiDesc">Real-time air quality from your GPS location (needs internet + API key).</p>
+        <button class="btn primary block" id="liveAqiBtn" data-i18n="getLiveAqi">📡 Get Live AQI</button>
+        <div id="liveAqiResult" class="list" style="margin-top:8px"></div>
+      </div>
+      <div class="card">
         <h3 data-i18n="aqiGuide">AQI guide</h3>
         <div class="aqi-scale">
           <div class="aqi-band" style="background:#00e400"><span>0–50</span><b data-i18n="aqiGood">Good</b></div>
@@ -238,6 +244,7 @@
         <button class="menu-tile" data-go="team">👥<span data-i18n="team">Team</span></button>
         <button class="menu-tile" data-go="clients">🏢<span data-i18n="clients">Clients</span></button>
         <button class="menu-tile" data-go="vault">🗄️<span data-i18n="vault">Vault</span></button>
+        <button class="menu-tile" data-go="bot">🤖<span data-i18n="botTile">AI Bot</span></button>
         <button class="menu-tile" data-go="backup">💾<span data-i18n="backup">Backup</span></button>
         <button class="menu-tile" data-go="settings">⚙️<span data-i18n="settings">Settings</span></button>
       </div>
@@ -347,6 +354,18 @@
       <div class="card"><h3>📜 <span data-i18n="audit">Audit trail</span></h3><div id="auditList" class="list"></div></div>
     </section>
 
+    <!-- AI BOT -->
+    <section class="screen" id="screen-bot">
+      <h2 data-i18n="botTitle">🤖 CNG AI Assistant</h2>
+      <div class="card chat-card">
+        <div id="botMsgs" class="chat-msgs"></div>
+        <div class="chat-row">
+          <input id="botInput" data-i18n-ph="botPh" placeholder="Ask something…" autocomplete="off">
+          <button class="btn primary" id="botSend">➤</button>
+        </div>
+      </div>
+    </section>
+
     <!-- BACKUP -->
     <section class="screen" id="screen-backup">
       <h2 data-i18n="backup">Backup</h2>
@@ -368,6 +387,13 @@
           <button class="btn role-pick" data-role="worker" data-i18n="roleWorker">Team</button>
         </div>
         <p class="muted small" data-i18n="roleNote">Stored only on this device.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="apiKeys">🔑 Live API Keys</h3>
+        <p class="muted small" data-i18n="apiKeysDesc">Free keys: OpenWeatherMap (openweathermap.org) for live AQI, Google AI Studio (aistudio.google.com) for the AI bot.</p>
+        <input id="owmKey" data-i18n-ph="owmKeyPh" placeholder="OpenWeatherMap API key" autocomplete="off">
+        <input id="geminiKey" data-i18n-ph="geminiKeyPh" placeholder="Gemini API key" autocomplete="off" style="margin-top:8px">
+        <button class="btn primary block" id="apiKeySave" data-i18n="save" style="margin-top:8px">Save</button>
       </div>
       <div class="card">
         <h3 data-i18n="about">About</h3>
